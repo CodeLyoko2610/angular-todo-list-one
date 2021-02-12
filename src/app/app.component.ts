@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-todolist-one';
+  name: string = 'Chuong'
+
+  constructor() {
+    console.log('This runs when component initializes.')
+    this.name = 'Dang Chuong Pham'
+  }
 }
