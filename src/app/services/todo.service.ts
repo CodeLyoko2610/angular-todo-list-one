@@ -12,9 +12,22 @@ export class TodoService {
   constructor(private http: HttpClient) { }
 
   todosUrl: string = 'https://jsonplaceholder.typicode.com/todos'
-  todosLimit: string = '?_limit=10'
+  todosLimit: string = '?_limit=5'
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+
+  }
 
   getTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(`${this.todosUrl}${this.todosLimit}`)
+  }
+
+  toggleCompleted(todo: Todo): Observable<any> {
+    const url = `${this.todosUrl}/${todo.id}`
+
+    return this.http.put(url, todo, this.httpOptions)
   }
 }
