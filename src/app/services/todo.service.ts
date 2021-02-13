@@ -30,4 +30,9 @@ export class TodoService {
 
     return this.http.put(url, todo, this.httpOptions)
   }
+
+  deleteTodo(todo: Todo) {
+    const url = `${this.todosUrl}/${todo.id}`
+    return this.http.delete(url)
+  }
 }
