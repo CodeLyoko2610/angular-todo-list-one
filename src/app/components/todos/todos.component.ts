@@ -20,7 +20,7 @@ export class TodosComponent implements OnInit {
       {
         id: 1,
         title: "Todo 1",
-        completed: false
+        completed: true
       },
       {
         id: 2,
