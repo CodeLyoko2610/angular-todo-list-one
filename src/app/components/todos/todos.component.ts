@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { v4 as uuidv4 } from 'uuid'
 
 import { TodoService } from 'src/app/services/todo.service'
 import { Todo } from 'src/app/models/Todo'
@@ -28,4 +29,12 @@ export class TodosComponent implements OnInit {
     this.todoService.deleteTodo(todo).subscribe()
   }
 
+  addTodo(todo: Todo) {
+    this.todoService.addTodo(todo).subscribe(res => {
+      //Fix duplicating id by Placeholder server
+      res.id = uuidv4()
+
+      this.todos.push(res)
+    })
+  }
 }

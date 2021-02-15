@@ -29,8 +29,7 @@ export class TodoItemComponent implements OnInit {
   onToggle(todo: Todo) {
     todo.completed = !todo.completed
 
-    this.todoService.toggleCompleted(todo).subscribe(res => console.log('[Component: todo-item]', res))
-
+    this.todoService.toggleCompleted(todo).subscribe()
   }
 
   onDelete(todo: Todo) {
